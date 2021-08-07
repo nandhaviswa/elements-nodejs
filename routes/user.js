@@ -17,7 +17,7 @@ router.delete('/', function (req, res) {
   res.send('user/delete');
 })
 
-router.delete('/index', function (req, res) {
+router.get('/index', function (req, res) {
   res.send('user/index');
 })
 
