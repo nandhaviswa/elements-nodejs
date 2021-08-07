@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-const port = process.env.HTTP_PORT_NO;
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
@@ -37,6 +36,4 @@ app.use(morgan(':moment :remote-addr :remote-user :method :url :status :res[cont
 
 app.use('/',routes);
 
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Elements app listening at http://localhost:${port}`)
-})
+module.exports = app;
