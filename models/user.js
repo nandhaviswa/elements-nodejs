@@ -3,16 +3,25 @@ const sequelize = require('../dbconn');
 
 const User = sequelize.define('User', {
     // Model attributes are defined here
-    firstName: {
-        type: DataTypes.STRING,
-        allowNull: false
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
     },
-    lastName: {
-        type: DataTypes.STRING
-        // allowNull defaults to true
+    username: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
+    },
+    email: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
     }
 }, {
-    // Other model options go here
+    timestamps: false,
+    freezeTableName: true,
+    tableName: 'user',
 });
 
 module.exports = User;
