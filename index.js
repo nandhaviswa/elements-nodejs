@@ -10,7 +10,7 @@ const path = require('path')
 const moment = require('moment')
 
 morgan.token('moment', function (req) {
-  return moment().format('YYYY-MM-DD HH:mm:ss.SSS');
+    return moment().format('YYYY-MM-DD HH:mm:ss.SSS');
 })
 
 const routes = require('./routes');
