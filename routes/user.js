@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
   res.send('user/get');
 })
 
-router.update('/', function (req, res) {
+router.put('/', function (req, res) {
   res.send('user/update');
 })
 
