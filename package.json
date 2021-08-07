@@ -4,6 +4,7 @@
   "description": "User{ \tnumber id, \talphanumeric username, \temail email, }",
   "main": "bin/www",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/navayuvan/elements-nodejs/issues"
   },
-  "homepage": "https://github.com/navayuvan/elements-nodejs#readme"
+  "homepage": "https://github.com/navayuvan/elements-nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
