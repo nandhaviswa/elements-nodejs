@@ -5,6 +5,7 @@
   "main": "bin/www",
   "scripts": {
     "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,5 +25,8 @@
     "morgan": "^1.10.0",
     "rotating-file-stream": "^2.1.5",
     "simple-node-logger": "^18.12.24"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
