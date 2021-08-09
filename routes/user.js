@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 const User = require('./../models/user');
 
-router.post('/', function (req, res) {
+router.post('/create', function (req, res) {
     let body = req.body;
     var user = new User();
     user.username = body.username;
@@ -22,7 +22,7 @@ router.post('/', function (req, res) {
     }).finally(() => res.end());
 })
 
-router.get('/:id', function (req, res) {
+router.get('/view/:id', function (req, res) {
     let id = req.param('id',null);
     User.findByPk(id).then( user => {
         res.json({
@@ -39,7 +39,7 @@ router.get('/:id', function (req, res) {
     }).finally(() => res.end());
 })
 
-router.put('/:id', function (req, res) {
+router.put('/update/:id', function (req, res) {
     let id = req.param('id',null);
     User.findByPk(id).then( user => {
         if(user == null){
@@ -64,7 +64,7 @@ router.put('/:id', function (req, res) {
     }).finally(() => res.end());
 })
 
-router.delete('/:id', function (req, res) {
+router.delete('/delete/:id', function (req, res) {
     let id = req.param('id',null);
     User.destroy({
         where: {
