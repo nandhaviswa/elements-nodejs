@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                input 'shall I build?'
                 echo 'Building..'
                 sh 'docker image ls'
             }
