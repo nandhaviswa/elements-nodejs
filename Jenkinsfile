@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 input('Shall I proceed or not?'){
-                    parameters{
+                    parameterDefinitions{
                         listGitBranches
                     }
                 }
