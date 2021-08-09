@@ -5,9 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 input('Shall I proceed or not?'){
-                    parameterDefinitions{
-                        listGitBranches
-                    }
+                    listGitBranches
                 }
                 echo 'Building..'
                 sh 'docker image ls'
