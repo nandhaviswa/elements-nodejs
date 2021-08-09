@@ -1,13 +1,16 @@
 require('dotenv').config();
 
 const express = require('express')
-const app = express()
 const morgan = require('morgan')
 const rfs = require('rotating-file-stream')
 const path = require('path')
 const moment = require('moment')
-
 const routes = require('./routes');
+
+const app = express()
+
+// parse incoming json req body
+app.use(express.json());
 
 // create a rolling file logger based on date/time that fires process events
 const opts = {
