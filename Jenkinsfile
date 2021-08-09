@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                input {
-                    message 'Shall I proceed or not?'
-                }
+                input message: 'Shall I proceed or not?'
                 echo 'Building..'
                 sh 'docker image ls'
             }
