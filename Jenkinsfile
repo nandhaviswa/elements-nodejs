@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                input message: 'Shall I proceed or not?' parameters{
+                input 
+                message: 'Shall I proceed or not?' 
+                parameters{
                     listGitBranches
                 }
                 echo 'Building..'
