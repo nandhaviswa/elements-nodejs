@@ -23,7 +23,7 @@ router.post('/create', function (req, res) {
 })
 
 router.get('/view/:id', function (req, res) {
-    let id = req.param('id',null);
+    let id = req.params.id;
     User.findByPk(id).then( user => {
         res.json({
             status: true,
@@ -40,7 +40,7 @@ router.get('/view/:id', function (req, res) {
 })
 
 router.put('/update/:id', function (req, res) {
-    let id = req.param('id',null);
+    let id = req.params.id;
     User.findByPk(id).then( user => {
         if(user == null){
             throw new Error(`User is found for the id #${id}`);
@@ -65,7 +65,7 @@ router.put('/update/:id', function (req, res) {
 })
 
 router.delete('/delete/:id', function (req, res) {
-    let id = req.param('id',null);
+    let id = req.params.id;
     User.destroy({
         where: {
             id: id,
