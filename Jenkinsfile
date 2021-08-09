@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'java --version'
+                sh 'docker image ls'
             }
         }
         stage('Test') {
