@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const rfs = require('rotating-file-stream')
 const path = require('path')
 const moment = require('moment')
+const simple_node_logger = require('simple-node-logger');
 const routes = require('./routes');
 
 const app = express()
@@ -20,7 +21,7 @@ const opts = {
     dateFormat:'YYYY-MM-DD',
     timestampFormat:'YYYY-MM-DD HH:mm:ss.SSS'
 };
-const applogger = require('simple-node-logger').createRollingFileLogger( opts );
+const applogger = simple_node_logger.createRollingFileLogger( opts );
 app.set('applogger',applogger);
 
 
