@@ -101,5 +101,9 @@ docker build -t elements-nodejs:latest .
 ```
 - Launch container from docker image
 ```sh
-docker run --name test-elements-nodejs elements-nodejs:latest
+docker run -d --name test-elements-nodejs elements-nodejs:latest
+```
+- SSH into the running container
+```sh
+docker exec -it test-elements-nodejs /bin/bash
 ```
