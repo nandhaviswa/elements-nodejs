@@ -1,0 +1,8 @@
+node_modules
+data
+public/logs/*
+*.md
+*.diff
+package-lock.json
+.git*
+Jenkinsfile
