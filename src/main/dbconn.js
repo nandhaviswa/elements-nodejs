@@ -5,7 +5,7 @@ const simple_node_logger = require('simple-node-logger');
 // create a rolling file logger based on date/time that fires process events
 const opts = {
     // errorEventName:'error',
-    logDirectory: path.join(__dirname, 'public', 'logs'), // NOTE: folder must exist and be writable...
+    logDirectory: path.join(__dirname, '..', '..', 'public', 'logs'), // NOTE: folder must exist and be writable...
     fileNamePattern:'database-<DATE>.log',
     dateFormat:'YYYY-MM-DD',
     timestampFormat:'YYYY-MM-DD HH:mm:ss.SSS'
