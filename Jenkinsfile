@@ -1,7 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'node:16' }
+    }
 
     stages {
+        stage('Check node version') {
+            steps {
+                sh 'node --version'
+            }
+        }
         stage('Build') {
             steps {
                 input 'Shall I proceed or not?'
