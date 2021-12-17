@@ -78,6 +78,10 @@ vim .env
 ```sh
 clear && npm start dev
 ```
+- Check the application by healthcheck URL.
+```sh
+google-chrome 'http://127.0.0.1:8080/healthcheck'
+```
 - Login to the adminer using google chrome command.
 ```sh
 google-chrome 'http://172.17.0.3:8080/?server=172.17.0.2&username=elements&db=elements&sql='
@@ -90,4 +94,12 @@ docker container rm $(docker container ls -a -q)
 - Remove all the downloaded images
 ```sh
 docker image rm $(docker image ls -aq)
+```
+- Build docker image
+```sh
+docker build -t elements-nodejs:latest .
+```
+- Launch container from docker image
+```sh
+docker run --name test-elements-nodejs elements-nodejs:latest
 ```
