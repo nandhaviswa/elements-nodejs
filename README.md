@@ -76,24 +76,16 @@ vim .env
 - Import data/elements-nodejs.postman_collection.json in postman
 - Launch the application using the below command.
 ```sh
-clear && npm start dev
+clear && HTTP_PORT_NO=4000  npm run dev
 ```
 - Check the application by healthcheck URL.
 ```sh
-google-chrome 'http://127.0.0.1:8080/healthcheck'
+google-chrome 'http://127.0.0.1:4000/healthcheck'
+google-chrome 'http://127.0.0.1:4000/user/index'
 ```
 - Login to the adminer using google chrome command.
 ```sh
 google-chrome 'http://172.17.0.3:8080/?server=172.17.0.2&username=elements&db=elements&sql='
-```
-- Stop all the running containers
-```sh
-docker container stop $(docker container ls -a -q)
-docker container rm $(docker container ls -a -q)
-```
-- Remove all the downloaded images
-```sh
-docker image rm $(docker image ls -aq)
 ```
 - Build docker image
 ```sh
@@ -106,4 +98,13 @@ docker run -d --name test-elements-nodejs elements-nodejs:latest
 - SSH into the running container
 ```sh
 docker exec -it test-elements-nodejs /bin/bash
+```
+- Stop all the running containers
+```sh
+docker container stop $(docker container ls -a -q)
+docker container rm $(docker container ls -a -q)
+```
+- Remove all the downloaded images
+```sh
+docker image rm $(docker image ls -aq)
 ```
