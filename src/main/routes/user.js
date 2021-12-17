@@ -1,92 +1,79 @@
 var express = require('express')
 var router = express.Router()
+const { UserService, } = require('./../services/user-service');
 const User = require('./../models/user');
 
 router.post('/create', function (req, res) {
     let body = req.body;
-    var user = new User();
-    user.username = body.username;
-    user.email = body.email;
-    user.save().then(() => {
+    UserService.create(body).then(model => {
         res.json({
             status: true,
             msg: 'User has been created successfully!',
-            data: user,
+            data: model,
         });
     }).catch( err => {
         res.json({
             status: false,
             msg: 'Error while creating user.',
-            data: err,
+            data: err.message,
         });
     }).finally(() => res.end());
 })
 
 router.get('/view/:id', function (req, res) {
     let id = req.params.id;
-    User.findByPk(id).then( user => {
+    UserService.view(id).then( user => {
         res.json({
             status: true,
-            msg: `get user #${id}`,
+            msg: `view user #${id}`,
             data: user,
         });
     }).catch( err => {
         res.json({
             status: false,
             msg: 'Error while getting user.',
-            data: err,
+            data: err.message,
         });
     }).finally(() => res.end());
 })
 
 router.put('/update/:id', function (req, res) {
     let id = req.params.id;
-    User.findByPk(id).then( user => {
-        if(user == null){
-            throw new Error(`User is found for the id #${id}`);
-        }
-        let body = req.body;
-        user.username = body.username;
-        user.email = body.email;
-        return user.save();
-    }).then( user => {
+    let body = req.body;
+    UserService.update(id, body).then( user => {
         res.json({
             status: true,
-            msg: `get user #${id}`,
+            msg: `update user #${id}`,
             data: user,
         });
     }).catch( err => {
         res.json({
             status: false,
-            msg: 'Error while getting user.',
-            data: err,
+            msg: 'Error while updating user!',
+            data: err.message,
         });
     }).finally(() => res.end());
 })
 
 router.delete('/delete/:id', function (req, res) {
     let id = req.params.id;
-    User.destroy({
-        where: {
-            id: id,
-        }
-    }).then( count => {
+    UserService.delete(id).then( count => {
         res.json({
             status: true,
-            msg: `get user #${id}`,
+            msg: `delete user #${id}`,
             data: count,
         });
     }).catch( err => {
         res.json({
             status: false,
-            msg: 'Error while getting user.',
-            data: err,
+            msg: 'Error while deleting user.',
+            data: err.message,
         });
     }).finally(() => res.end());
 })
 
 router.get('/index', function (req, res) {
-    User.findAll().then( users => {
+    UserService.index().then( users => {
         res.json({
             status: true,
             msg: 'List of users',
@@ -95,8 +82,8 @@ router.get('/index', function (req, res) {
     }).catch( err => {
         res.json({
             status: false,
-            msg: 'Error while listings users.',
-            data: err,
+            msg: 'Error while listing users.',
+            data: err.message,
         });
     }).finally(() => res.end());
 })
