@@ -6,3 +6,4 @@ public/logs/*
 package-lock.json
 .git*
 Jenkinsfile
+.scannerwork
