@@ -1,4 +1,5 @@
 node_modules
 *.diff
 /.env
-.scannerwork
+/.scannerwork
+/coverage
