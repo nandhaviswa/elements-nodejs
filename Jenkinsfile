@@ -25,6 +25,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'ls -la'
+                sh 'ls -ld coverage/*'
                 sh 'sonar-scanner -Dsonar.login=1fdcfdc830765535e65bd617b909aeec5c8592c5 -Dsonar.host.url=http://172.17.0.1:9000'
             }
         }
