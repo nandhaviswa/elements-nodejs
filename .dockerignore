@@ -1,9 +1,13 @@
+.git*
+.scannerwork
+.dockerignore
 node_modules
 data
+coverage
 public/logs/*
 *.md
 *.diff
 package-lock.json
-.git*
 Jenkinsfile
-.scannerwork
+sonar-project.properties
+Dockerfile
