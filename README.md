@@ -29,14 +29,15 @@
  - Profile belongs to User 
  - Profile has many address
 
+- Clone the repository and navigate to project root
 ```sh
 git clone https://github.com/navayuvan/elements-nodejs.git
 cd ~/Workspace/elements-nodejs
-
-clear && git status && git branch
-git diff > diff.diff && subl diff.diff
-
+```
+- Install necessary dependencies and run UT
+```sh
 npm install
+npm test
 ```
 - Start the docker service
 ```sh

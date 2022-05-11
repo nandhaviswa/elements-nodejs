@@ -1,3 +1,4 @@
+/* ** Root ** */
 DROP DATABASE IF EXISTS `elements`;
 CREATE DATABASE `elements`;
 
@@ -5,6 +6,7 @@ DROP USER IF EXISTS 'elements'@'%';
 CREATE USER 'elements'@'%' IDENTIFIED WITH mysql_native_password BY 'elements';
 GRANT ALL PRIVILEGES ON *.* TO 'elements'@'%' WITH GRANT OPTION;
 
+/* ** Application User ** */
 USE elements;
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
