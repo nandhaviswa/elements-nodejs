@@ -13,7 +13,7 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -larth'
                 sh 'npm install'
-                sh 'npm run test'
+                sh 'npm test'
             }
         }
         stage('Sonarqube coverage results') {
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'ls -la'
-                sh 'sonar-scanner -Dsonar.login=85398a188d152e13c7b9c37b45d3d85689dd2175 -Dsonar.host.url=http://172.17.0.1:9000'
+                sh 'sonar-scanner -Dsonar.login=1fdcfdc830765535e65bd617b909aeec5c8592c5 -Dsonar.host.url=http://172.17.0.1:9000'
             }
         }
     }
