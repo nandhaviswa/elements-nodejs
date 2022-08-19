@@ -70,7 +70,7 @@ mysql -uroot -proot
 ```sh
 mysql -u'elements' -p'elements' -h'127.0.0.1'
 ```
-- Execute queries in [data/schema.mysql.sql](https://github.com/navayuvan/elements-nodejs/blob/main/data/schema.mysql.sql)
+- Execute remaining queries in [data/schema.mysql.sql](https://github.com/navayuvan/elements-nodejs/blob/main/data/schema.mysql.sql)
 - Copy the env file and modify the values for the environment
 ```sh
 cp data/env ./.env
